@@ -1,0 +1,44 @@
+<section id="movies">
+    <div>
+        <div>
+            <div>
+                <div>
+                    <div>
+                        <span>Genre</span>
+                        <div></div>
+                    </div>
+                    <div>
+                        <span>Year</span>
+                        <div></div>
+                    </div>
+                    <div>
+                        <input type="text">
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <input type="radio">
+                        <label>Movies</label>
+                    </div>
+                    <div>
+                        <input type="radio">
+                        <label>Books</label>
+                    </div>
+                    <div>
+                        <a href="#">Clear filters</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <div>
+                <ul id="movieList">
+                    <% include ../partials/_movie-objects %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

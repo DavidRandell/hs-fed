@@ -1,0 +1,30 @@
+{
+    "name": "hubspot-code-exercise",
+    "version": "1.1.0",
+    "description": "HubSpot Code Exercise",
+    "main": "./build/index.js",
+    "scripts": {
+        "start": "gulp"
+    },
+    "author": "HubSpot Applicant",
+    "license": "ISC",
+    "private": true,
+    "devDependencies": {
+        "browser-sync": "^2.11.1",
+        "del": "^2.2.0",
+        "ejs": "^2.4.1",
+        "gulp": "^3.9.1",
+        "gulp-concat": "^2.6.0",
+        "gulp-ejs": "^2.1.1",
+        "gulp-ng-annotate": "^2.0.0",
+        "gulp-sass": "^2.2.0",
+        "gulp-uglify": "^1.5.3",
+        "static-server": "^2.0.4",
+        "gulp-sourcemaps": "^2.6.0",
+        "vinyl-source-stream": "^1.1.0"
+    },
+    "dependencies": {
+        "jquery": "^3.2.1",
+        "angular": "^1.6.4"
+    }
+}
