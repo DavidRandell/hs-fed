@@ -13,7 +13,8 @@ fedTest.controller('mainController', ['$scope', '$http', function($scope, $http)
         $scope.jokes.push(obj);
         $scope.$apply();
     });
-    $('.cta-btn').on('click', function() {
+
+    $scope.giveMeChuck = function() {
         $scope.jokes = [];
         obj = {};
         $.getJSON('https://api.icndb.com/jokes/random?escape=javascript', function(data) {
@@ -21,7 +22,38 @@ fedTest.controller('mainController', ['$scope', '$http', function($scope, $http)
             $scope.jokes.push(obj);
             $scope.$apply();
         });
+    }
+
+
+    $http({
+        method: "GET",
+        url: "js/data/data.json"
+    }).then(function mySuccess(response) {
+        $scope.movies = response.data.media;
+    }, function myError(response) {
+        $scope.movies = response.statusText;
     });
+
+    // $scope.movies = function() {
+    //     $http.get('js/data/data.json').
+    //     success(function(data, status, headers, config) {
+    //         $scope.media = data;
+    //         console.log("hello");
+    //     }).
+    //     error(function(data, status, headers, config) {
+    //         // log error
+    //     });
+    // }
+
+    // app.controller("PostsCtrl", function($scope, $http) {
+    //     $http.get('js/data/data.json').
+    //     success(function(data, status, headers, config) {
+    //         $scope.posts = data;
+    //     }).
+    //     error(function(data, status, headers, config) {
+    //         // log error
+    //     });
+    // });
 
     // $http.get('js/data/data.json').success(function(data) {
     //     $scope.movies = data;

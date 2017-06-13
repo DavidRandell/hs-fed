@@ -99,6 +99,37 @@ body {
     }
 }
 
+#movies {
+    margin: 0 auto;
+    border: 1px solid #555555;
+    padding: 15px;
+}
+
+#movieList {
+    float: left;
+    font-family: Montserrat;
+    li {
+        float: left;
+        width: 31.25%;
+        margin: 1.0416666666667% 1.0416666666667% 2%;
+        transition: all 0.5s ease;
+         :nth-child(3n+3) {
+            margin-right: 0;
+        }
+        figcaption {
+            font-size: 13px;
+            margin: 15px 0;
+        }
+        img {
+            width: 100%;
+        }
+        span {
+            font-size: 12px;
+            text-transform: capitalize;
+        }
+    }
+}
+
 //Media Queries
 $breakpoint-tablet: 768px;
 $breakpoint-mobile: 480px;
@@ -123,6 +154,9 @@ $breakpoint-mobile: 480px;
             right: 5%;
         }
     }
+    #movieList li {
+        width: 47.9166666666667%;
+    }
 }
 
 @media (max-width: $breakpoint-mobile) {
@@ -137,5 +171,9 @@ $breakpoint-mobile: 480px;
         .cta-btn {
             right: 3%;
         }
+    }
+    #movieList li {
+        width: 100%;
+        margin-bottom: 4%;
     }
 }

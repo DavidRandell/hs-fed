@@ -1,5 +1,7 @@
-<li ng-repeat="movies in movie">
-    <img src="" />
-    <h3></h3>
-    <h4></h4>
+<li ng-repeat="movie in movies | orderBy:'title'">
+    <figure>
+        <img src="{{movie.poster}}" />
+        <figcaption>{{movie.title + ' (' +movie.year+')'}}</figcaption>
+        <span>{{movie.genre}}</span>
+    </figure>
 </li>
