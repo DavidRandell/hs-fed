@@ -1,7 +1,10 @@
-<li ng-repeat="movie in movies | orderBy:'title'">
-    <figure>
-        <img src="{{movie.poster}}" />
+<li ng-repeat="movie in movies | orderBy:'title' | filter:search | filter:type | filter:year | filter:genre">
+
+    <figure class="movieDetails">
+        <img src="{{movie.poster}}" alt="{{'Image of the artwork for the ' + movie.type + ' ' + movie.title}}" />
+
         <figcaption>{{movie.title + ' (' +movie.year+')'}}</figcaption>
-        <span>{{movie.genre}}</span>
+        <span>Genre:  {{movie.genre.join(", ")}} </span>
+
     </figure>
 </li>

@@ -1,31 +1,35 @@
-<section id="movies">
-    <div>
+<section id="mediaWrapper">
+    <div id="mediaInterface">
         <div>
             <div>
-                <div>
-                    <div>
+                <div id="checkboxFilters" class="group">
+                    <div class="dropdown" ng-click="toggleGenres()">
                         <span>Genre</span>
-                        <div></div>
+                        <div id="genreChecklist" ng-controller="genreController">
+                            <% include ../partials/_genredropdown %>
+                        </div>
                     </div>
-                    <div>
+                    <div class="dropdown" ng-click="toggleYears()">
                         <span>Year</span>
-                        <div></div>
+                        <div id="yearChecklist" ng-controller="yearController">
+                            <% include ../partials/_yeardropdown %>
+                        </div>
                     </div>
-                    <div>
-                        <input type="text">
+                    <div class="searchbox search icon">
+                        <input type="text" ng-model="search">
                     </div>
                 </div>
-                <div>
-                    <div>
-                        <input type="radio">
+                <div id="radioFilters" class="group">
+                    <div class="radios">
+                        <input type="radio" ng-model="type" value="movie">
                         <label>Movies</label>
                     </div>
-                    <div>
-                        <input type="radio">
+                    <div class="radios">
+                        <input type="radio" ng-model="type" value="book">
                         <label>Books</label>
                     </div>
-                    <div>
-                        <a href="#">Clear filters</a>
+                    <div class="clearfiltersCTA">
+                        <a href="#" ng-click="resetFilters()">Clear filters</a>
                     </div>
                 </div>
             </div>
@@ -34,7 +38,7 @@
 
     <div>
         <div>
-            <div id="movies" class="group">
+            <div id="media">
                 <ul id="movieList">
                     <% include ../partials/_movie-objects %>
                 </ul>

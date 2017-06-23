@@ -1,9 +1,16 @@
 var fedTest = angular.module('fedTest', []);
 
 fedTest.controller('mainController', ['$scope', '$http', function($scope, $http) {
-    //Testimonials
-    $scope.testimonialContent = 'You and I are very much alike. Archaeology is our religion, yet we have both fallen from the pure faith. Our methods have not differed as much as you pretend. I am but a shadowy reflection of you. It would take only a nudge to make you like me. To push you out of the light. What a fitting end to your life’s pursuits.';
-    $scope.testimonialName = 'Indiana Jones, Archaeologist';
+
+    // Display Movie List
+    $http({
+        method: "GET",
+        url: "js/data/data.json"
+    }).then(function mySuccess(response) {
+        $scope.movies = response.data.media;
+    }, function myError(response) {
+        $scope.movies = response.statusText;
+    });
 
     //Chuck Norris Quotes!
     $scope.jokes = [];
@@ -24,40 +31,62 @@ fedTest.controller('mainController', ['$scope', '$http', function($scope, $http)
         });
     }
 
+    $scope.testimonialContent = 'You and I are very much alike. Archaeology is our religion, yet we have both fallen from the pure faith. Our methods have not differed as much as you pretend. I am but a shadowy reflection of you. It would take only a nudge to make you like me. To push you out of the light. What a fitting end to your life’s pursuits.';
+    $scope.testimonialName = 'Indiana Jones, Archaeologist';
+    $scope.toggleGenres = function() {
+        $('#genreChecklist').slideToggle();
+    }
+    $scope.toggleYears = function() {
+        $('#yearChecklist').slideToggle();
+    }
+}])
 
-    $http({
-        method: "GET",
-        url: "js/data/data.json"
-    }).then(function mySuccess(response) {
-        $scope.movies = response.data.media;
-    }, function myError(response) {
-        $scope.movies = response.statusText;
+
+fedTest.controller('genreController', ['$scope', function($scope) {
+
+
+    $.getJSON('js/data/data.json', function(data) {
+        // make an array concatenating all genres
+        var genreArray = data.media.reduce(function(result, val) {
+
+            return result.concat(val.genre);
+        }, []);
+
+        // remove duplicates
+        genreArray = genreArray.filter(function(item, pos, self) {
+            return self.indexOf(item) == pos;
+        });
+        // sort the array
+        genreArray.sort();
+        // bind to the scope
+        $scope.genres = genreArray;
+
     });
 
-    // $scope.movies = function() {
-    //     $http.get('js/data/data.json').
-    //     success(function(data, status, headers, config) {
-    //         $scope.media = data;
-    //         console.log("hello");
-    //     }).
-    //     error(function(data, status, headers, config) {
-    //         // log error
-    //     });
-    // }
 
-    // app.controller("PostsCtrl", function($scope, $http) {
-    //     $http.get('js/data/data.json').
-    //     success(function(data, status, headers, config) {
-    //         $scope.posts = data;
-    //     }).
-    //     error(function(data, status, headers, config) {
-    //         // log error
-    //     });
-    // });
+}])
 
-    // $http.get('js/data/data.json').success(function(data) {
-    //     $scope.movies = data;
-    //     console.log(data);
-    // });
+fedTest.controller('yearController', ['$scope', function($scope) {
 
-}]);
+
+    $.getJSON('js/data/data.json', function(data) {
+
+        // make an array concatenating all Years
+        var yearArray = data.media.reduce(function(result, val) {
+
+            return result.concat(val.year);
+        }, []);
+
+        // remove duplicates
+        yearArray = yearArray.filter(function(item, pos, self) {
+            return self.indexOf(item) == pos;
+        });
+        // sort the array
+        yearArray.sort();
+        // bind to the scope
+        $scope.years = yearArray;
+
+    });
+
+
+}])

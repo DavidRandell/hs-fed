@@ -15,7 +15,7 @@ var SCRIPTS_PATH = './src/js/**/*.js';
 var CSS_PATH = './src/css/**/*.css';
 
 // Styles for SCSS
-gulp.task('css', /*['clean:css'],*/ function() {
+gulp.task('css', function() {
     return gulp.src('src/scss/main.scss')
         .pipe(sass({
             outputStyle: 'compressed'
@@ -25,7 +25,7 @@ gulp.task('css', /*['clean:css'],*/ function() {
 });
 
 gulp.task('js', function() {
-    gulp.src(['src/**/module.js', SCRIPTS_PATH])
+    gulp.src(['src/**/app.js', SCRIPTS_PATH])
         .pipe(sourcemaps.init())
         .pipe(concat('js/app.js'))
         .pipe(ngAnnotate())
