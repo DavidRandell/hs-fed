@@ -1,14 +1,16 @@
 # Submission Notes 
 
-These notes will be read by HubSpot developers. Drop us a line!
+Hi HubDev's, what a great tech test this is... i mean was! A challenging one I must say. I got through as much as I could. I am dissapointed in myself for not getting all the filtering hooked up. It's an Angular issue and I couldn't resolve some of it. Same with the clear filters, frustrating that I ran out of time to hook that bit of functionality up as well. 
 
-Hi HubDev's, what a great tech test this is... a challenging one I must say. I got through as much as I could. I am dissapointed in myself for not getting all the filtering hooked up. It's an Angular issue and I couldn't resolve some of it. Same with the clear filters, frustrating that I ran out of time to hook that bit of functionality up as well. 
+Hey, I did get the Seach filter working! (Yes...I know, the icon isn't in there. If only I was allowed to add the <i> tag to the HTML! Grrr. I had to prioritise functionality over bling!
 
 ## Given more time, what would you have done differently?
 
-Probably taken your advice and used this as a chance to try React, ES6 and Webpack! I love trying and getting to know new tech, thing is sometimes that can be a bit of a downfall, I should probably focus on becoming more of an expert at one JS framework and stick to that. In this case I had to use Angular as it's the one I have the most experience with.
+Less bling, more function!
 
-I might have tried Lodash, as that would have made the filtering of the nested Arrays a bit faster.
+Probably taken your advice and used this as a chance to try React, ES6 and Webpack! I love trying and getting to know new tech, thing is sometimes that can be spreading yourself a bit thin, I should probably focus on becoming better at one JS framework and stick to that. In this case I had to use Angular as it's the one I have the most experience with.
+
+I might have tried Lodash, as that would have made the filtering of the nested Arrays and functionality a bit faster i suppose.
 
 ## Is there anything else you'd like to let us know?
 
